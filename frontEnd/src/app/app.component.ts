@@ -8,6 +8,11 @@ import { MyService } from './my.service';
 })
 export class AppComponent {
   title = 'frontEnd';
+  
+  usernameforhttp=''
+  resultFromhttp:any;
+  errorMsgFromhttp='';
+
 
   username = '';
   result: any;       
@@ -26,5 +31,14 @@ export class AppComponent {
         this.errorMsg = 'Login failed';
         this.result = null;
       });
+  }
+
+
+  submitUsingHttp(){
+    this.loginService.loginUsingHttp(this.usernameforhttp).subscribe({
+      next: data=> this.resultFromhttp = data,
+      error: err => this.errorMsgFromhttp= err
+    }
+    )
   }
 }

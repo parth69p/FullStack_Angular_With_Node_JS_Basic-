@@ -1,12 +1,33 @@
-<input type="text" [(ngModel)]="username" placeholder="Enter username">
-<button (click)="submit()">Login</button>
+<div class="card">
+  <h2>Using HTTP</h2>
+  <input type="text" [(ngModel)]="usernameforhttp" placeholder="Enter username">
+  <button (click)="submitUsingHttp()">Login using Http </button>
 
-<div *ngIf="result">
-  <h3>Response from Server:</h3>
-  <p>{{ result.message }}</p>
-  <p>User: {{ result.user }}</p>
+  <div *ngIf="resultFromhttp">
+    <h3>Response from Server:</h3>
+    <p>{{ resultFromhttp.message }}</p>
+    <p>User: {{ resultFromhttp.user }}</p>
+  </div>
+
+  <div *ngIf="errorMsgFromhttp" style="color:red">
+    {{ errorMsgFromhttp }}
+  </div>
 </div>
 
-<div *ngIf="errorMsg" style="color:red">
-  {{ errorMsg }}
+<hr>
+
+<div class="card">
+  <h2>Using Axios</h2>
+  <input type="text" [(ngModel)]="username" placeholder="Enter username">
+  <button (click)="submit()">Login using Http </button>
+
+  <div *ngIf="result">
+    <h3>Response from Server:</h3>
+    <p>{{ result.message }}</p>
+    <p>User: {{ result.user }}</p>
+  </div>
+
+  <div *ngIf="errorMsg" style="color:red">
+    {{ errorMsg }}
+  </div>
 </div>
